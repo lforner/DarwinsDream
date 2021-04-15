@@ -3,7 +3,72 @@ guid: 2bee28ab6e931544aba46937627d1d22
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: b3794670d9e2b2d43b302f745f3a70cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Herbe
+    second: {fileID: 2100000, guid: cae58057bf5e3de43a8d27ba515bec12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feuilles_1
+    second: {fileID: 2100000, guid: e28f86ec9c4672c4b9003e42f356c790, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feuilles_2
+    second: {fileID: 2100000, guid: 4b7c50fe0b9d07a41bed30e0750237af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: feuilles_3
+    second: {fileID: 2100000, guid: ffd03e74077e0eb4ea07fa3b59593f14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 88d0e1a3480be8a459b1480617b818ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nuage_1
+    second: {fileID: 2100000, guid: 7224b185216148c4c8fe7efc346f2135, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nuage_2
+    second: {fileID: 2100000, guid: 86caf3f87075f0541b419c2af87a95a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nuage_3
+    second: {fileID: 2100000, guid: 847414269f71ee046a6157fc6a3209d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rock1
+    second: {fileID: 2100000, guid: 485a62d898abc95438d492d5968507ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rock2
+    second: {fileID: 2100000, guid: ee5bcfe490caff444aabe9f107a675af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tronc_1
+    second: {fileID: 2100000, guid: 1f515280d125cbc4ea78618f11640b2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tronc_2
+    second: {fileID: 2100000, guid: 727a78bd0bd5c8443886deea3cf0fe2f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

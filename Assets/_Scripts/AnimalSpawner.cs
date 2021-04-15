@@ -19,7 +19,6 @@ public class AnimalSpawner : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //GameManager.S.AnimalsLists.Add(_animals);
@@ -35,11 +34,5 @@ public class AnimalSpawner : MonoBehaviour
             //_animals.Add(animal);
         }
         AnimalsCountUI.S.IncrementsAnimalsCount(AnimalPrefab.GetComponent<AnimalBehaviour>().SpeciesType, AnimalsCount);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

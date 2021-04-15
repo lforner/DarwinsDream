@@ -7,7 +7,7 @@ public class VictoryUI : PanelBase
 {
     void Start()
     {
-        GameManager.S.VictoryUI = this;
+        GameManager.VictoryUI = this;
     }
 
     public void WinGame()

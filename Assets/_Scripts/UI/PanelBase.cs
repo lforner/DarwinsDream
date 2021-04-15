@@ -8,7 +8,7 @@ public class PanelBase : MonoBehaviour
     public float FadeDuration = 1;
     private CanvasGroup _canvasGroup;
 
-    private void Start()
+    private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }

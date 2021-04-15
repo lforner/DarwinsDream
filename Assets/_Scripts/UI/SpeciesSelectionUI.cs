@@ -6,19 +6,12 @@ public class SpeciesSelectionUI : PanelBase
 {
     public void StartGame(int speciesIndex)
     {
-        switch (speciesIndex)
+        GameManager.S.SelectedSpecies = speciesIndex switch
         {
-            case 0:
-                GameManager.S.SelectedSpecies = AnimalSpeciesType.Rock;
-                break;
-            case 1:
-                GameManager.S.SelectedSpecies = AnimalSpeciesType.Paper;
-                break;
-            default:
-                GameManager.S.SelectedSpecies = AnimalSpeciesType.Cisor;
-                break;
-        }
-
+            0 => AnimalSpeciesType.Rock,
+            1 => AnimalSpeciesType.Paper,
+            _ => AnimalSpeciesType.Cisor,
+        };
         Hide();
         GameManager.S.StartGame();
     }

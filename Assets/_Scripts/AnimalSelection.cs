@@ -10,14 +10,14 @@ public class AnimalSelection : MonoBehaviour
     {
         _isFollowed = true;
         CamerasManager.S.FollowTarget(transform);
-        AnimalDetailsUI.S.ShowAnimalDetails(GetComponent<AnimalBehaviour>().ChildGenome);
+        GameManager.AnimalDetailsUI.ShowAnimalDetails(GetComponent<AnimalBehaviour>().ChildGenome);
     }
 
     private void OnDestroy()
     {
         if (!_isFollowed) return;
         //CamerasManager.S.UnfollowTarget();
-        AnimalDetailsUI.S.HideAnimalDetails();
+        GameManager.AnimalDetailsUI.HideAnimalDetails();
         _isFollowed = false;    
     }
 }

@@ -7,7 +7,7 @@ public class DefeatUI : PanelBase
 {
     void Start()
     {
-        GameManager.S.DefeatUI = this;
+        GameManager.DefeatUI = this;
     }
 
     public void LoseGame()

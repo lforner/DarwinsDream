@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager S;
 
     //public List<List<GameObject>> AnimalsLists = new List<List<GameObject>>();
-    [HideInInspector] public VictoryUI VictoryUI;
-    [HideInInspector] public DefeatUI DefeatUI;
+    [HideInInspector] public static VictoryUI VictoryUI;
+    [HideInInspector] public static DefeatUI DefeatUI;
+    [HideInInspector] public static AnimalDetailsUI AnimalDetailsUI;
     [HideInInspector] public GameObject AnimalContainer;
 
     [Header("Dynamic")]
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int WaveNumber { get; private set; }
     public AnimalSpeciesType SelectedSpecies { get; internal set; }
     public bool HasGameStarted { get; private set; }
+    public bool HasGameFinished { get; private set; }
 
 
     void Awake()
@@ -39,19 +41,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex >= 1)
+        {
+            InitGameflow();
+        }
     }
 
     private void Update()
     {
         if (HasGameStarted && Input.GetMouseButtonDown(0) && CamerasManager.S.IsFollowing)
         {
-            AnimalDetailsUI.S.HideAnimalDetails();
+            AnimalDetailsUI.HideAnimalDetails();
         }
     }
 
-    private IEnumerator TriggerDisruptions(AsyncOperation loading)
+    private IEnumerator TriggerDisruptions(AsyncOperation loading = null)
     {
-        yield return loading;
+        if (loading != null) yield return loading;
 
         while (EndlessMode || WaveNumber < NumberOfPerturbationsToWin)
         {
@@ -78,8 +84,14 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
-        Invoke(nameof(UnloadMenuScene), 1);
+        Invoke(nameof(UnloadMenuScene), 1 * Time.timeScale);
+        InitGameflow(loading);
+    }
+
+    private void InitGameflow(AsyncOperation loading = null)
+    {
         HasGameStarted = true;
+        HasGameFinished = false;
         StartCoroutine(TriggerDisruptions(loading));
     }
 
@@ -90,13 +102,19 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        if (HasGameFinished) return;
+
         Debug.Log("LoseGame");
         DefeatUI.LoseGame();
+        HasGameFinished = true;
     }
 
     public void WinGame()
     {
+        if (HasGameFinished) return;
+
         Debug.Log("WinGame");
         VictoryUI.WinGame();
+        HasGameFinished = true;
     }
 }

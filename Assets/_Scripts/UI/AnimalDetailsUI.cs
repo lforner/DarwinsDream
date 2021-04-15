@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class AnimalDetailsUI : PanelBase
 {
-    public static AnimalDetailsUI S;
-
     private AnimalGenome _genome;
 
-    private void Awake()
+    void Start()
     {
-        S = this;
+        GameManager.AnimalDetailsUI = this;
     }
 
     public void ShowAnimalDetails(AnimalGenome genome)

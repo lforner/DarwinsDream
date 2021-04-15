@@ -113,17 +113,11 @@ public class AnimalBehaviour : MonoBehaviour {
     public bool IsHungry => Energy <= FoodEnergy;
     public bool CanMakeLove => Energy > LoveEnergyConsumption;
 
-    // Start is called before the first frame update
     void Start() {
         _species = speciesMap[SpeciesType];
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _emoticon = GetComponentInChildren<SpriteRenderer>();
         _audioSource = GetComponentInChildren<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update() {
-
     }
 
     private void FixedUpdate() {

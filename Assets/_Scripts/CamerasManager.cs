@@ -9,10 +9,9 @@ public class CamerasManager : MonoBehaviour
     public static CamerasManager S;
 
     public CinemachineFreeLook OrbitalCam;
-    public CinemachineVirtualCamera SelectionCam;
+    public CinemachineFreeLook SelectionCam;
 
     [HideInInspector] public bool IsFollowing;
-    private Transform _target;
 
     private void Awake()
     {
@@ -21,16 +20,20 @@ public class CamerasManager : MonoBehaviour
 
     private void Update()
     {
-        OrbitalCam.m_XAxis.m_MaxSpeed = Input.GetMouseButton(0) ? 100 : 0;
-        OrbitalCam.m_YAxis.m_MaxSpeed = Input.GetMouseButton(0) ? 1 : 0;
+        bool isPlayerPressingCameraButton = Input.GetMouseButton(1);
+
+        int horizontalSpeed = isPlayerPressingCameraButton ? 100 : 0;
+        int verticalSpeed = isPlayerPressingCameraButton ? 1 : 0;
+
+        OrbitalCam.m_XAxis.m_MaxSpeed = SelectionCam.m_XAxis.m_MaxSpeed = horizontalSpeed;
+        OrbitalCam.m_YAxis.m_MaxSpeed = SelectionCam.m_YAxis.m_MaxSpeed = verticalSpeed;
     }
 
     public void FollowTarget(Transform target)
     {
-        _target = target;
         SelectionCam.Follow = SelectionCam.LookAt = target;
         SelectionCam.Priority = 10;
-        Invoke(nameof(SetIsFollow), .1f);
+        Invoke(nameof(SetIsFollow), .1f * Time.timeScale);
     }
 
     private void SetIsFollow()
